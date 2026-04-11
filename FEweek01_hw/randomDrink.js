@@ -9,5 +9,5 @@ const drinkList=[
     {name:"알로에 주스",price:1900}
 ];
 //지갑 금액 변수 설정(사용자에게 금액 입력받기)
-let wallet =(prompt("현재 보유하신 금액을 입력해주세요."));
+let wallet =prompt("현재 보유하신 금액을 입력해주세요.");
 console.log(`금액:${wallet}`);
