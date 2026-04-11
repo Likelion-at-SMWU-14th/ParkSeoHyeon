@@ -27,3 +27,21 @@ function message(drink,Success){
     }
     
 }
+
+function buyDrink(){
+    console.log(`----------랜덤자판기 작동 시작-----------`)
+    for(let i=1; i<=3; i++) {
+        const selected = random(drinkList); }
+        
+        if (selected.price <= wallet) {
+            wallet -= selected.price;
+            console.log(message(selected,true));
+        } else {
+            console.log(message(selected,false));
+        }
+    }
+
+    console.log(`----------랜덤자판기 작동 종료-----------`);
+
+buyDrink();
+
