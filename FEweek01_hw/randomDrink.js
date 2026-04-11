@@ -9,45 +9,5 @@ const drinkList=[
     {name:"알로에 주스",price:1900}
 ];
 //지갑 금액 변수 설정(사용자에게 금액 입력받기)
-let wallet = Number(prompt("현재 보유하신 금액을 입력해주세요."));
+let wallet =(prompt("현재 보유하신 금액을 입력해주세요."));
 console.log(`금액:${wallet}`);
-//랜덤 선택 기능
-function random(arr){
-    return arr[Math.floor(Math.random()*arr.length)]
-};
-//문자열 반환 함수 구현
-function message(drink,Success){
-    if(Success){
-        return `${drink.name}가 나왔어요!(가격:${drink.price})
-                잔액:${wallet}원`;
-    } else{
-        return`돈이 부족해요! 음료를 살 수 없어요.`;
-    }
-    
-}
-//buyDrink() 함수 구현
-function buyDrink(){
-    const receipt = [];
-    console.log(`----------랜덤자판기 작동 시작-----------`)
-    for(let i=1; i<=3; i++) {
-        const selected = random(drinkList);  
-        
-        if (selected.price <= wallet) {
-            wallet -= selected.price;
-            receipt.push(selected.name);
-            console.log(message(selected,true));
-        } else {
-            console.log(message(selected,false));
-        }
-    }
-    console.log(`----------랜덤자판기 작동 종료-----------`);
-    
-    if (receipt.length > 0){
-        console.log(`[영수증] ${receipt.join(",")} 총 ${receipt.length}건 구입 완료!`);
-    } else {
-        console.loㅎ(`구매한 내역이 없습니다.`);
-    }
-}
-
-buyDrink();
-
