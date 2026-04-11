@@ -9,7 +9,7 @@ const drinkList=[
     {name:"알로에 주스",price:1900}
 ];
 //지갑 금액 변수 설정(사용자에게 금액 입력받기)
-let wallet =prompt("현재 보유하신 금액을 입력해주세요.");
+let wallet =Number(("현재 보유하신 금액을 입력해주세요."));
 console.log(`금액:${wallet}`);
 
 //랜덤 선택 기능
@@ -31,7 +31,7 @@ function message(drink,Success){
 function buyDrink(){
     console.log(`----------랜덤자판기 작동 시작-----------`)
     for(let i=1; i<=3; i++) {
-        const selected = random(drinkList); }
+        const selected = random(drinkList); 
         
         if (selected.price <= wallet) {
             wallet -= selected.price;
@@ -40,8 +40,8 @@ function buyDrink(){
             console.log(message(selected,false));
         }
     }
-
-    console.log(`----------랜덤자판기 작동 종료-----------`);
+     console.log(`----------랜덤자판기 작동 종료-----------`);
+ }
 
 buyDrink();
 
