@@ -11,3 +11,19 @@ const drinkList=[
 //지갑 금액 변수 설정(사용자에게 금액 입력받기)
 let wallet =prompt("현재 보유하신 금액을 입력해주세요.");
 console.log(`금액:${wallet}`);
+
+//랜덤 선택 기능
+function random(arr){
+    return arr[Math.floor(Math.random()*arr.length)]
+};
+
+//문자열 반환 함수 구현
+function message(drink,Success){
+    if(Success){
+        return `${drink.name}가 나왔어요!(가격:${drink.price})
+                잔액:${wallet}원`;
+    } else{
+        return`돈이 부족해요! 음료를 살 수 없어요.`;
+    }
+    
+}
