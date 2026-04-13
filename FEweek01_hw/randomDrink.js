@@ -9,7 +9,7 @@ const drinkList=[
     {name:"알로에 주스",price:1900}
 ];
 //지갑 금액 변수 설정(사용자에게 금액 입력받기)
-let wallet =Number(("현재 보유하신 금액을 입력해주세요."));
+let wallet =Number(prompt("현재 보유하신 금액을 입력해주세요."));
 console.log(`금액:${wallet}`);
 
 //랜덤 선택 기능
@@ -47,7 +47,7 @@ function buyDrink(){
      if (receipt.length > 0){
         console.log(`[영수증] ${receipt.join(",")} 총 ${receipt.length}건 구입 완료!`);
     } else {
-        console.loㅎ(`구매한 내역이 없습니다.`);
+        console.log(`구매한 내역이 없습니다.`);
     }
  }
 
