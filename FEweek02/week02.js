@@ -5,6 +5,7 @@ const wishList = document.getElementById("wish-list");
 
 function addWish(event) {
     event.preventDefault(); 
+    
 
     const wishText = wishInput.value.trim();
 
@@ -21,12 +22,20 @@ function addWish(event) {
 
         wishItem.appendChild(wishTextSpan);
         wishItem.appendChild(deleteBtn);
-        wishItem.appendChild(wishItem);
+        wishList.appendChild(wishItem);
 
         wishInput.value="";
 
-
-
-
 }
 }
+
+function handleWishClick(event) {
+    const target = event.target;
+
+    if(target.classList.contains("delete-btn")) {
+        target.parentElement.remove();
+    }
+}
+
+wishForm.addEventListener("submit",addWish);
+wishList.addEventListener("click",handleWishClick);
