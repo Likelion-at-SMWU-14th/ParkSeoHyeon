@@ -142,6 +142,6 @@ body {
 }
 
 
-.repost-active . icon-img{
-    content: url('images/fullscrap.png');
+.repost-active .icon-img{
+    content: url('images/check.png');
 }

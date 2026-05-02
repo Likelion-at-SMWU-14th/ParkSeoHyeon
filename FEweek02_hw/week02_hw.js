@@ -35,3 +35,25 @@ reposetBtnSet.addEventListener('click', function() {
 
         repostCountSpan.innerText = repostCount;
 }) ;
+
+
+const moreBtn = document.getElementById('more-btn');
+const postText = document.getElementById('post-text');
+
+const shortText = "아기 고양이가 냐.......";
+const fullText = `아기 고양이가 냐....... 
+
+
+                  옹`;
+
+moreBtn.addEventListener('click',function() {
+    const isExpanded = moreBtn.classList.toggle('is-expanded');
+
+    if(isExpanded) {
+        postText.innerText = fullText;
+        moreBtn.innerText = "접기";
+    }  else{
+        postText.innerText = shortText;
+        moreBtn.innerText = "더보기";
+    }
+});
