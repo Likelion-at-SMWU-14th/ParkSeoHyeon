@@ -145,3 +145,7 @@ body {
 .repost-active .icon-img{
     content: url('images/check.png');
 }
+
+.scrap-active.icon-img{
+    content:url('images/fullscrap.png');
+}

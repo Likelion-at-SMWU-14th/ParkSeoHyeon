@@ -57,3 +57,14 @@ moreBtn.addEventListener('click',function() {
         moreBtn.innerText = "더보기";
     }
 });
+
+const scrapBtn = document.getElementById('scrap-btn');
+const scrapImg = scrapBtn.querySelector('img');
+
+scrapBtn.addEventListener('click',function() {
+    const isScrapped = scrapBtn.classList.toggle('scrap-active');
+
+    if (isScrapped) {
+        scrapImg.src = 'images/fullscrap.png';
+    } else {scrapImg.src = 'images/scrap.png'};
+});
