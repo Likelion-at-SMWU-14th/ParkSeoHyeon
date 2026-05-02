@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEweek02_hw</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="week02_hw.css" />
+</head>
+<body>
+    <article class="insta-container">
+        <header class="insta-header">
+            <div class="profile-info">
+                <img src="images/profile1.png" class="profile-img" alt="사용자의 프로필">
+                <div class="text-group">
+                    <span class="user-id">s_hynn2</span>
+                    <span class="time">2일 전</span>
+                </div>
+            </div>
+
+            <button class="more-menu-btn">
+                <img src="images/more.png" alt="메뉴" class="more-icon">
+            </button>
+        </header>
+
+        <section class="insta-image">
+            <img src="images/cat.png" alt="피드 사진" class="main-photo">
+        </section>
+
+        <section class="insta-icons">
+            <div class="left-icons">
+                <div class="icon-with-count">
+                    <button id="like-btn" class="icon-btn">
+                      <img src="images/heart.png" alt="좋아요" class="icon-img">
+                    </button>
+                    <span id="like-count-icon" class="count-num">437</span>
+                </div>  
+
+                <div class="icon-with-count">
+                    <button class="icon-btn">
+                       <img src="images/comment.png" alt="댓글" class="icon-img">
+                    </button>
+                    <span class="count-num">15</span>
+                </div>
+
+                <div id="repost-btn-set" class="icon-with-count">
+                    <button class="icon-btn">
+                       <img src="images/repost.png" alt="리포스트" class="icon-img">
+                    </button>
+                    <span id="repost-count" class="count-num">11</span>
+                </div>
+                
+                <div class="icon-with-count">
+                    <button class="icon-btn">
+                        <img src="images/send.png" alt="보내기" class="icon-img">
+                    </button>  
+                    <span class="count-num">7</span>
+                </div>
+            </div>
+
+            <button id="scrap-btn" class="icon-btn">
+                <img src="images/scrap.png" alt="스크랩" class="icon-img">
+            </button>
+        </section>
+
+        <section class="insta-content">
+            <div class="post-description">
+                <span class="user-id">s_hynn2</span>
+                <span id="post-text">아기 고양이가 냐.......</span>
+                <button id="more-btn" class="text-btn">더 보기</button>
+            </div>
+
+        </section>
+
+    
+    </article><script src="week02_hw.js"></script>
+    
+</body>
+</html>
