@@ -133,4 +133,10 @@ body {
     cursor: pointer;
     font-size: 14px;
     margin-left: 4px;
+
+}
+
+
+.like-active.icon-img{
+    content:url('images/full.png');
 }
