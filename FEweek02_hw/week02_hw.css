@@ -140,3 +140,8 @@ body {
 .like-active.icon-img{
     content:url('images/full.png');
 }
+
+
+.repost-active . icon-img{
+    content: url('images/fullscrap.png');
+}
