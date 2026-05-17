@@ -24,7 +24,7 @@ const searchBtn = document.getElementById('search-btn');
 const songListContainer = document.getElementById('song-list-container');
 
 
-function searchSongs() {
+async function searchSongs() {
   const keyword = searchInput.value.trim(); 
   
   if (keyword === '') {
@@ -34,15 +34,16 @@ function searchSongs() {
 
   const url = `https://api.manana.kr/karaoke/singer/${keyword}.json`;
 
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    
+    console.log(data);
 
-  fetch(url)
-    .then(response => response.json()) 
-    .then(data => {
-      
-      if (data.length === 0) {
-        songListContainer.innerHTML = '<p class="no-result">검색 결과가 없습니다.</p>';
-        return;
-      }
+    if (data.length === 0) {
+      songListContainer.innerHTML = '<p class="no-result">검색 결과가 없습니다.</p>';
+      return;
+    }
 
     
       const htmlTemplate = data.map(song => {
@@ -68,7 +69,11 @@ function searchSongs() {
 
       
       setupHeartEvents();
-    });
+    } catch (error) {
+    console.log("에러 발생");
+    console.error(error);
+    songListContainer.innerHTML = '<p class="no-result">데이터를 불러오는 중 오류가 발생했습니다.</p>';
+  }
 }
 
 
