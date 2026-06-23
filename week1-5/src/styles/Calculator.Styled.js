@@ -48,6 +48,20 @@ export const CalcButton = styled.div`
   justify-content: center;
   align-items: center;
 
+  grid-column: span ${({ $span }) => $span};
+
   font-size: 1.5rem;
-  background-color: #839de9;
+  background-color: ${({ $variant }) => {
+    if ($variant === "operator") {
+      return "#ff9f0a";
+    }
+
+    if ($variant === "action") {
+      return "#858589";
+    }
+
+    return "#98989c";
+  }};
+
+  color: "ffffff";
 `;
