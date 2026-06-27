@@ -16,7 +16,7 @@ export const CalculatorPanel = styled.section`
 
   display: flex;
   flex-direction: column;
-  gap 0.2rem;
+  gap: 0.2rem;
 
   padding: 0.25rem;
   background-color: #3d3d40;
@@ -33,6 +33,7 @@ export const Display = styled.div`
   align-items: flex-end;
 
   padding: 1.5rem;
+
   font-size: 4rem;
   font-weight: 300;
   line-height: 1;
@@ -44,7 +45,6 @@ export const ButtonGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.25rem;
-  background-color: #53e1de;
 `;
 
 export const CalcButton = styled.div`
@@ -56,9 +56,8 @@ export const CalcButton = styled.div`
 
   grid-column: span ${({ $span }) => $span};
 
-  border: 1px solid #444444
+  border: 1px solid #444444;
 
-  
   background-color: ${({ $variant }) => {
     if ($variant === "operator") {
       return "#ff9f0a";
@@ -71,21 +70,21 @@ export const CalcButton = styled.div`
     return "#98989c";
   }};
 
-  color: "ffffff";
+  color: #ffffff;
 
   font-size: 1.8rem;
 
   cursor: pointer;
 
   transition:
-   filter 0.2s ease,
-   transform 0.1s ease;
+    filter 0.2s ease,
+    transform 0.1s ease;
 
   &:hover {
     filter: brightness(1.08);
   }
 
   &:active {
-   transform: scale(0.97);
-   }
+    transform: scale(0.97);
+  }
 `;
