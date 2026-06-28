@@ -27,7 +27,8 @@ function App() {
 
         <S.HeaderIconArea>
           <S.SearchIcon>⌕</S.SearchIcon>
-          <S.ProfileIcon>●</S.ProfileIcon>
+
+          <S.ProfileImage src="/images/profile.jpg" alt="프로필 아이콘" />
         </S.HeaderIconArea>
       </S.Header>
 
@@ -66,11 +67,6 @@ function App() {
               니코레트
             </S.AdMainText>
           </S.AdLeft>
-
-          <S.AdRight>
-            <S.AdCircle>NIC</S.AdCircle>
-            <S.AdProductText>NICORETTE</S.AdProductText>
-          </S.AdRight>
         </S.AdBanner>
 
         <S.RomanceSection>

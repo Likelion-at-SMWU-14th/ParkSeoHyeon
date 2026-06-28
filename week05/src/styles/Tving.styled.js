@@ -104,18 +104,6 @@ export const SearchIcon = styled.span`
   line-height: 1;
 `;
 
-export const ProfileIcon = styled.span`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  background-color: #ef3340;
-  color: #000;
-  font-size: 0.7rem;
-`;
-
 export const CategoryList = styled.section`
   display: flex;
   gap: 0.75rem;
@@ -150,7 +138,7 @@ export const RankingList = styled.section`
 export const AdBanner = styled.section`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   min-width: 60rem;
   height: 10rem;
   margin: 0 0 3.5rem;
@@ -179,33 +167,6 @@ export const AdMainText = styled.p`
   font-size: 1.65rem;
   font-weight: 900;
   line-height: 1.3;
-`;
-
-export const AdRight = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-`;
-
-export const AdCircle = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 5.2rem;
-  height: 5.2rem;
-  border-radius: 50%;
-  background-color: #f7fbfb;
-  color: #3f9d78;
-  font-size: 1.2rem;
-  font-weight: 900;
-  box-shadow: 0 0.4rem 0.8rem rgba(45, 118, 92, 0.15);
-`;
-
-export const AdProductText = styled.span`
-  color: #2f9c72;
-  font-size: 1.4rem;
-  font-weight: 900;
-  letter-spacing: 0.05rem;
 `;
 
 export const DramaCard = styled.article`
@@ -241,4 +202,12 @@ export const DramaList = styled.section`
   &::-webkit-scrollbar {
     display: none;
   }
+`;
+
+export const ProfileImage = styled.img`
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
 `;
