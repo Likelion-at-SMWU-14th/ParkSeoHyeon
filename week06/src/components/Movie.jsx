@@ -17,6 +17,10 @@ function Movie() {
       });
   }, []);
 
+  const searchedMovies = movies.filter((movie) =>
+    movie.title.toLowerCase().includes(searchKeyword.toLowerCase()),
+  );
+
   return (
     <Container>
       <Title>무비차트</Title>
@@ -28,20 +32,24 @@ function Movie() {
         onChange={(e) => setSearchKeyword(e.target.value)}
       />
 
-      <MovieGrid>
-        {movies.map((movie) => (
-          <MovieCard key={movie.id}>
-            <Poster src={movie.poster} alt={movie.title} />
+      {searchedMovies.length === 0 ? (
+        <EmptyMessage>검색 결과가 없습니다.</EmptyMessage>
+      ) : (
+        <MovieGrid>
+          {searchedMovies.map((movie) => (
+            <MovieCard key={movie.id}>
+              <Poster src={movie.poster} alt={movie.title} />
 
-            <MovieInfo>
-              <MovieTitle>{movie.title}</MovieTitle>
-              <Rating>⭐ {movie.rating}</Rating>
-              <Genre>{movie.genre}</Genre>
-              <Description>{movie.description}</Description>
-            </MovieInfo>
-          </MovieCard>
-        ))}
-      </MovieGrid>
+              <MovieInfo>
+                <MovieTitle>{movie.title}</MovieTitle>
+                <Rating>⭐ {movie.rating}</Rating>
+                <Genre>{movie.genre}</Genre>
+                <Description>{movie.description}</Description>
+              </MovieInfo>
+            </MovieCard>
+          ))}
+        </MovieGrid>
+      )}
     </Container>
   );
 }
@@ -128,6 +136,13 @@ const Description = styled.p`
   color: #cccccc;
   font-size: 14px;
   line-height: 1.5;
+`;
+
+const EmptyMessage = styled.p`
+  margin-top: 40px;
+  color: #777777;
+  text-align: center;
+  font-size: 18px;
 `;
 
 export default Movie;
