@@ -1,10 +1,10 @@
 import "./App.css";
-import UserInfo from "./components/Info";
+import Movie from "./components/Movie";
 
 function App() {
   return (
     <div>
-      <UserInfo />
+      <Movie />
     </div>
   );
 }
