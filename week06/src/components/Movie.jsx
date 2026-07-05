@@ -5,6 +5,7 @@ import styled from "styled-components";
 function Movie() {
   const [movies, setMovies] = useState([]);
   const [searchKeyword, setSearchKeyword] = useState("");
+  const [selectedGenre, setSelectedGenre] = useState("전체");
 
   useEffect(() => {
     axios
@@ -16,6 +17,8 @@ function Movie() {
         console.error("에러 발생:", err);
       });
   }, []);
+
+  const genres = ["전체", ...new Set(movies.map((movie) => movie.genre))];
 
   const searchedMovies = movies.filter((movie) =>
     movie.title.toLowerCase().includes(searchKeyword.toLowerCase()),
@@ -31,6 +34,19 @@ function Movie() {
         value={searchKeyword}
         onChange={(e) => setSearchKeyword(e.target.value)}
       />
+
+      <GenreButtonWrapper>
+        {genres.map((genre) => (
+          <GenreButton
+            key={genre}
+            type="button"
+            $active={selectedGenre === genre}
+            onClick={() => setSelectedGenre(genre)}
+          >
+            {genre}
+          </GenreButton>
+        ))}
+      </GenreButtonWrapper>
 
       {searchedMovies.length === 0 ? (
         <EmptyMessage>검색 결과가 없습니다.</EmptyMessage>
@@ -81,6 +97,28 @@ const SearchInput = styled.input`
 
   &:focus {
     border-color: #ff7a2f;
+  }
+`;
+
+const GenreButtonWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+`;
+
+const GenreButton = styled.button`
+  padding: 9px 16px;
+  border: 1px solid ${({ $active }) => ($active ? "#ff7a2f" : "#d6d6d6")};
+  border-radius: 999px;
+  background-color: ${({ $active }) => ($active ? "#ff7a2f" : "#ffffff")};
+  color: ${({ $active }) => ($active ? "#ffffff" : "#333333")};
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+
+  &:hover {
+    opacity: 0.8;
   }
 `;
 
