@@ -24,9 +24,10 @@ function Movie() {
     const isGenreMatched =
       selectedGenre === "전체" || movie.genre === selectedGenre;
 
-    const isSearchMatched = movie.title
-      .toLowerCase()
-      .includes(searchKeyword.toLowerCase());
+    const isSearchMatched =
+      movie.title.toLowerCase().includes(searchKeyword.toLowerCase()) ||
+      movie.genre.toLowerCase().includes(searchKeyword.toLowerCase()) ||
+      movie.description.toLowerCase().includes(searchKeyword.toLowerCase());
 
     return isGenreMatched && isSearchMatched;
   });
@@ -37,7 +38,7 @@ function Movie() {
 
       <SearchInput
         type="text"
-        placeholder="영화 제목을 검색하세요"
+        placeholder="제목, 장르, 설명을 검색하세요"
         value={searchKeyword}
         onChange={(e) => setSearchKeyword(e.target.value)}
       />
