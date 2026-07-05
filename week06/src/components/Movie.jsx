@@ -20,9 +20,16 @@ function Movie() {
 
   const genres = ["전체", ...new Set(movies.map((movie) => movie.genre))];
 
-  const searchedMovies = movies.filter((movie) =>
-    movie.title.toLowerCase().includes(searchKeyword.toLowerCase()),
-  );
+  const filteredMovies = movies.filter((movie) => {
+    const isGenreMatched =
+      selectedGenre === "전체" || movie.genre === selectedGenre;
+
+    const isSearchMatched = movie.title
+      .toLowerCase()
+      .includes(searchKeyword.toLowerCase());
+
+    return isGenreMatched && isSearchMatched;
+  });
 
   return (
     <Container>
@@ -48,11 +55,11 @@ function Movie() {
         ))}
       </GenreButtonWrapper>
 
-      {searchedMovies.length === 0 ? (
+      {filteredMovies.length === 0 ? (
         <EmptyMessage>검색 결과가 없습니다.</EmptyMessage>
       ) : (
         <MovieGrid>
-          {searchedMovies.map((movie) => (
+          {filteredMovies.map((movie) => (
             <MovieCard key={movie.id}>
               <Poster src={movie.poster} alt={movie.title} />
 
