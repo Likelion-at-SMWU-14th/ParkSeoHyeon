@@ -39,35 +39,37 @@ function Movie() {
 }
 
 const Container = styled.div`
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 40px 20px;
+  min-height: 100vh;
+  margin: 0;
+  padding: 40px;
+  background-color: #ffffff;
+  color: #111;
 `;
 
-const Title = styled.h1`
-  text-align: center;
-  margin-bottom: 30px;
+const Title = styled.h3`
+  margin-bottom: 24px;
+  font-size: 28px;
+  font-weight: 700;
 `;
 
 const MovieGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
 `;
 
 const MovieCard = styled.div`
   overflow: hidden;
-  border: 1px solid #dddddd;
-  border-radius: 12px;
-  background-color: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  border-radius: 16px;
+  background-color: #1f1f1f;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
 `;
 
 const Poster = styled.img`
-  display: block;
   width: 100%;
-  height: 300px;
+  height: 360px;
   object-fit: cover;
+  display: block;
 `;
 
 const MovieInfo = styled.div`
@@ -75,24 +77,33 @@ const MovieInfo = styled.div`
 `;
 
 const MovieTitle = styled.h2`
-  margin: 0 0 10px;
+  margin-bottom: 8px;
   font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
 `;
 
 const Rating = styled.p`
-  margin: 6px 0;
-  font-weight: bold;
+  margin-bottom: 8px;
+  color: #ffd166;
+  font-size: 15px;
 `;
 
 const Genre = styled.p`
-  margin: 6px 0;
-  color: #666666;
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background-color: #ff7a2f;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
 `;
 
 const Description = styled.p`
-  margin: 10px 0 0;
+  color: #cccccc;
+  font-size: 14px;
   line-height: 1.5;
-  color: #444444;
 `;
 
 export default Movie;
