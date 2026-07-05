@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 function Movie() {
   const [movies, setMovies] = useState([]);
+  const [searchKeyword, setSearchKeyword] = useState("");
 
   useEffect(() => {
     axios
@@ -19,6 +20,13 @@ function Movie() {
   return (
     <Container>
       <Title>무비차트</Title>
+
+      <SearchInput
+        type="text"
+        placeholder="영화 제목을 검색하세요"
+        value={searchKeyword}
+        onChange={(e) => setSearchKeyword(e.target.value)}
+      />
 
       <MovieGrid>
         {movies.map((movie) => (
@@ -50,6 +58,22 @@ const Title = styled.h3`
   margin-bottom: 24px;
   font-size: 28px;
   font-weight: 700;
+`;
+
+const SearchInput = styled.input`
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  border: 1px solid #d6d6d6;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+
+  &:focus {
+    border-color: #ff7a2f;
+  }
 `;
 
 const MovieGrid = styled.div`
