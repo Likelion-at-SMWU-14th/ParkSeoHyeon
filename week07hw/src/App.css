@@ -1,3 +1,50 @@
 #root {
   min-height: 100vh;
 }
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 6rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dbeafe;
+}
+
+header strong {
+  font-size: 2.2rem;
+  color: #2563eb;
+}
+
+nav {
+  display: flex;
+  gap: 2.4rem;
+}
+
+nav a {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+nav a:hover {
+  color: #2563eb;
+}
+
+main {
+  width: min(120rem, calc(100% - 4rem));
+  margin: 0 auto;
+  padding: 6rem 0;
+}
+
+section h1 {
+  margin: 0 0 1.6rem;
+  font-size: 4rem;
+  color: #172033;
+}
+
+section p {
+  margin: 0;
+  font-size: 1.7rem;
+  color: #64748b;
+}
