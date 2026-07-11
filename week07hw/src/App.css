@@ -3,16 +3,25 @@
 }
 
 header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 2rem 6rem;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.94);
   border-bottom: 1px solid #dbeafe;
+  backdrop-filter: blur(1.2rem);
 }
 
 header strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
   font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.06rem;
   color: #2563eb;
 }
 
@@ -137,13 +146,16 @@ section p {
 }
 
 .product-card {
+  display: flex;
   overflow: hidden;
+  flex-direction: column;
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 2.2rem;
   transition:
     transform 0.2s ease,
-    box-shadow 0.2s ease;
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .product-card:hover {
@@ -199,6 +211,7 @@ section p {
 
 .wishlist-button {
   width: 100%;
+  margin-top: auto;
   padding: 1.3rem;
   font-size: 1.4rem;
   font-weight: 700;
@@ -446,6 +459,196 @@ section p {
   }
 
   .product-search {
+    width: 100%;
+  }
+}
+
+.product-detail-page {
+  padding-bottom: 5rem;
+}
+
+.back-button {
+  margin-bottom: 2.4rem;
+  padding: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #64748b;
+  background: none;
+  border: none;
+}
+
+.back-button:hover {
+  color: #2563eb;
+}
+
+.product-detail-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 6rem;
+  padding: 4rem;
+  background-color: #ffffff;
+  border: 1px solid #dbeafe;
+  border-radius: 3rem;
+  box-shadow: 0 2rem 5rem rgba(37, 99, 235, 0.08);
+}
+
+.detail-image-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56rem;
+  overflow: hidden;
+  background-color: #f8fafc;
+  border-radius: 2.2rem;
+}
+
+.detail-image {
+  width: 100%;
+  height: 56rem;
+  object-fit: contain;
+}
+
+.detail-info {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.detail-info h1 {
+  margin: 1.6rem 0 1.4rem;
+  font-size: clamp(3.4rem, 5vw, 5.2rem);
+  line-height: 1.15;
+  letter-spacing: -0.18rem;
+  color: #172033;
+}
+
+.detail-price {
+  margin: 0;
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #1e3a8a;
+}
+
+.detail-divider {
+  width: 100%;
+  height: 1px;
+  margin: 3rem 0;
+  background-color: #e2e8f0;
+}
+
+.detail-description {
+  margin: 0;
+  font-size: 1.7rem;
+  line-height: 1.9;
+  color: #526078;
+}
+
+.detail-actions {
+  display: flex;
+  width: 100%;
+  gap: 1.2rem;
+  margin-top: 4rem;
+}
+
+.detail-wishlist-button,
+.secondary-button,
+.primary-button {
+  padding: 1.5rem 2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 1.2rem;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.detail-wishlist-button {
+  flex: 1;
+  color: #2563eb;
+  background-color: #ffffff;
+  border: 1px solid #93c5fd;
+}
+
+.detail-wishlist-button:hover,
+.detail-wishlist-button.active {
+  color: #ffffff;
+  background-color: #2563eb;
+  border-color: #2563eb;
+}
+
+.secondary-button {
+  color: #334155;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+}
+
+.secondary-button:hover {
+  color: #2563eb;
+  background-color: #eff6ff;
+  border-color: #93c5fd;
+}
+
+.primary-button {
+  color: #ffffff;
+  background-color: #2563eb;
+  border: 1px solid #2563eb;
+}
+
+.primary-button:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-0.2rem);
+}
+
+.not-found-page {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 55rem;
+  text-align: center;
+}
+
+.not-found-whale {
+  margin-bottom: 2rem;
+  font-size: 8rem;
+}
+
+.not-found-page h1 {
+  margin: 0 0 1.2rem;
+  font-size: 3.6rem;
+}
+
+.not-found-page p {
+  margin: 0 0 3rem;
+}
+
+@media (max-width: 850px) {
+  .product-detail-card {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .detail-image-wrapper,
+  .detail-image {
+    min-height: 42rem;
+    height: 42rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .product-detail-card {
+    padding: 2rem;
+  }
+
+  .detail-actions {
+    flex-direction: column;
+  }
+
+  .detail-wishlist-button,
+  .secondary-button {
     width: 100%;
   }
 }
