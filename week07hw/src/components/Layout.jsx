@@ -1,6 +1,9 @@
 import { Link, Outlet } from "react-router-dom";
+import useWishlist from "../hooks/useWishlist";
 
 function Layout() {
+  const { wishlist } = useWishlist();
+
   return (
     <div>
       <header>
@@ -10,7 +13,11 @@ function Layout() {
 
         <nav>
           <Link to="/">SHOP</Link>
-          <Link to="/wishlist">WISHLIST</Link>
+
+          <Link to="/wishlist">
+            WISHLIST
+            <span className="wishlist-count">{wishlist.length}</span>
+          </Link>
         </nav>
       </header>
 
