@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-const Button = ({ text, onBtnClick = () => {} }) => {
+const Button = ({ text, onBtnClick = () => {}, disabled = false }) => {
   return (
-    <ButtonContainer onClick={onBtnClick}>{text || "버튼"}</ButtonContainer>
+    <ButtonContainer onClick={onBtnClick} disabled={disabled}>
+      {text || "버튼"}
+    </ButtonContainer>
   );
 };
 
@@ -25,4 +27,9 @@ const ButtonContainer = styled.button`
   line-height: normal;
   border: none;
   cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 `;

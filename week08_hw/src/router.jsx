@@ -21,6 +21,10 @@ const router = createBrowserRouter([
         path: "write",
         element: <WritePage />,
       },
+      {
+        path: "edit/:id",
+        element: <WritePage />,
+      },
     ],
   },
 ]);
