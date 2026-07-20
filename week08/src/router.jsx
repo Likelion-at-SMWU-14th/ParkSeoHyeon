@@ -14,7 +14,7 @@ const router = createBrowserRouter([
         element: <CommentPage />,
       },
       {
-        path: "datail/:id",
+        path: "detail/:id",
         element: <DetailPage />,
       },
       {
