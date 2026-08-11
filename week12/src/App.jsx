@@ -5,8 +5,8 @@ import * as S from "./styles/styled";
 
 function App() {
   const [newTodo, setNewTodo] = useState("");
-  const todos = useTodoStore((s) => S.todos);
-  const addTodo = useTodoStore((s) => S.addTodo);
+  const todos = useTodoStore((s) => s.todos);
+  const addTodo = useTodoStore((s) => s.addTodo);
 
   const handleAddTodo = () => {
     if (!newTodo.trim()) return;
@@ -21,7 +21,7 @@ function App() {
   return (
     <>
       <S.GlobalStyle />
-      <S.page>
+      <S.Page>
         <S.Card>
           <S.H1>투두리스트</S.H1>
 
@@ -33,6 +33,9 @@ function App() {
                 onChange={(e) => setNewTodo(e.target.value)}
                 placeholder="할일을 추가해봐"
               />
+              <S.PrimaryButton type="submit" title="추가">
+                할 일 추가
+              </S.PrimaryButton>
             </S.Row>
           </form>
           <S.List>
@@ -43,7 +46,7 @@ function App() {
             )}
           </S.List>
         </S.Card>
-      </S.page>
+      </S.Page>
     </>
   );
 }
