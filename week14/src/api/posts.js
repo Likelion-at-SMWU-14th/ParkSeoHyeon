@@ -8,12 +8,12 @@ export const createPost = async (newPost) => {
 };
 
 export const fetchPosts = async () => {
-  const { data } = await axios.post(`${BASE_URL}/posts`);
+  const { data } = await axios.get(`${BASE_URL}/posts`);
   return data;
 };
 
 export const updatePost = async ({ id, ...updateFields }) => {
-  const { data } = await axios.post(`${BASE_URL}/posts/${id}`, updateFields);
+  const { data } = await axios.put(`${BASE_URL}/posts/${id}`, updateFields);
   return data;
 };
 
