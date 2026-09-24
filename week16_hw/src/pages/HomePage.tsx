@@ -1,8 +1,9 @@
 import { useMemo, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import { products } from "../data/products";
+import type { ProductFilter } from "../types/product";
 
-const categories = [
+const categories: { value: ProductFilter; label: string }[] = [
   { value: "all", label: "전체" },
   { value: "clothes", label: "의류" },
   { value: "shoes", label: "신발" },
@@ -11,7 +12,7 @@ const categories = [
 
 function HomePage() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedCategory, setSelectedCategory] = useState<ProductFilter>("all");
 
   const filteredProducts = useMemo(() => {
     const normalizedSearchTerm = searchTerm.trim().toLowerCase();
