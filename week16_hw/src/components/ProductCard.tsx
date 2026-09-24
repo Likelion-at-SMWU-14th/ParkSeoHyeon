@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import useWishlist from "../hooks/useWishlist";
+import type { Product } from "../types/product";
 
-function ProductCard({ product }) {
+interface ProductCardProps {
+  product: Product;
+}
+
+function ProductCard({ product }: ProductCardProps) {
   const { isWishlisted, toggleWishlist } = useWishlist();
 
   const wished = isWishlisted(product.id);
