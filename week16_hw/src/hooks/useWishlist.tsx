@@ -1,15 +1,26 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, type ReactNode } from "react";
+import type { Product } from "../types/product";
 
-const WishlistContext = createContext(null);
+interface WishlistContextValue {
+  wishlist: Product[];
+  isWishlisted: (productId: number) => boolean;
+  toggleWishlist: (product: Product) => void;
+  clearWishlist: () => void;
+}
 
-export function WishlistProvider({ children }) {
-  const [wishlist, setWishlist] = useState([]);
+interface WishlistProviderProps {
+  children: ReactNode;
+}
+const WishlistContext = createContext<WishlistContextValue | null>(null);
 
-  const isWishlisted = (productId) => {
+export function WishlistProvider({ children }: WishlistProviderProps) {
+  const [wishlist, setWishlist] = useState<Product[]>([]);
+
+  const isWishlisted = (productId: number): boolean => {
     return wishlist.some((product) => product.id === productId);
   };
 
-  const toggleWishlist = (product) => {
+  const toggleWishlist = (product: Product): void => {
     setWishlist((previousWishlist) => {
       const alreadyWishlisted = previousWishlist.some(
         (item) => item.id === product.id,
@@ -23,7 +34,7 @@ export function WishlistProvider({ children }) {
     });
   };
 
-  const clearWishlist = () => {
+  const clearWishlist = (): void => {
     setWishlist([]);
   };
 
@@ -41,7 +52,7 @@ export function WishlistProvider({ children }) {
   );
 }
 
-function useWishlist() {
+function useWishlist(): WishlistContextValue {
   const context = useContext(WishlistContext);
 
   if (!context) {
