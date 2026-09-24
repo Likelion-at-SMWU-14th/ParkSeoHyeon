@@ -1,3 +1,4 @@
+import type { Product } from "../types/product";
 import product1 from "../assets/pr-1.jpg";
 import product2 from "../assets/pr-2.jpg";
 import product3 from "../assets/pr-3.jpg";
@@ -5,7 +6,7 @@ import product4 from "../assets/pr-4.jpg";
 import product5 from "../assets/pr-5.jpg";
 import product6 from "../assets/pr-6.jpg";
 
-export const products = [
+export const products: Product[] = [
   {
     id: 1,
     name: "Lace Ribbon Sleeveless Top",
