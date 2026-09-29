@@ -1,12 +1,6 @@
 {
   "recipes": [
     {
-      "id": "1",
-      "title": "김치볶음밥 🍚",
-      "ingredients": "밥, 김치, 양파, 대파, 간장, 식용유",
-      "instructions": "팬에 식용유를 두르고 김치와 양파를 볶아요. 밥을 넣고 간장으로 간한 뒤 대파를 넣어 한 번 더 볶아요."
-    },
-    {
       "id": "2",
       "title": "달걀말이 🍳",
       "ingredients": "달걀, 소금, 우유, 대파, 식용유",
@@ -24,5 +18,6 @@
       "ingredients": "버섯, 양파, 다진 마늘, 간장, 식용유",
       "instructions": "팬에 식용유를 두르고 마늘과 양파를 볶아요. 버섯을 넣어 익힌 뒤 간장으로 간해요."
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
