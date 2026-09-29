@@ -1,20 +1,24 @@
 import axios from "axios";
-import type { Recipe } from "../types/recipe";
+import type { CreateRecipeRequest, Recipe } from "../types/recipe";
 
-const api = axiois.create{(
-    baseURL: "http://localhost:8000";
-)};
+export async function createRecipe(body: CreateRecipeRequest): Promise<Recipe> {
+  const response = await api.post<Recipe>("/recipes", body);
+  return response.data;
+}
 
-async function getResource<T>(path:string): Promise<T> {
-    const response = await api.get<T>(path);
-    return response.data;
-    
+const api = axios.create({
+  baseURL: "http://localhost:8000",
+});
+
+async function getResource<T>(path: string): Promise<T> {
+  const response = await api.get<T>(path);
+  return response.data;
 }
 
 export function getRecipes(): Promise<Recipe[]> {
-    return getResource<Recipe[]>("/recipes");
+  return getResource<Recipe[]>("/recipes");
 }
 
-export function getRecipe(ud: Recipe["id"]): Promise<Recipe> {
-    return getResource<Recipe>(`/recipes/${id}`);
+export function getRecipe(id: Recipe["id"]): Promise<Recipe> {
+  return getResource<Recipe>(`/recipes/${id}`);
 }
