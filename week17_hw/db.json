@@ -1,0 +1,82 @@
+{
+  "cafes": [
+    {
+      "id": "1",
+      "name": "텀어스 연희",
+      "area": "연희동",
+      "address": "서울 서대문구 연희맛로 2-3 2층",
+      "outlet": "많음",
+      "noise": "조용함",
+      "wifi": true,
+      "hasLargeTable": true,
+      "coffeePrice": 5500,
+      "description": "연희동에 위치한 카페로, 커피와 다양한 디저트 메뉴를 제공해요.",
+      "naverMapUrl": "https://naver.me/GVVSIYrp"
+    },
+    {
+      "id": "2",
+      "name": "치CHI 카페",
+      "area": "문래동",
+      "address": "서울 영등포구 도림로133길 9 지하1층",
+      "outlet": "적음",
+      "noise": "보통",
+      "wifi": true,
+      "hasLargeTable": false,
+      "coffeePrice": 5000,
+      "description": "문래역 인근 지하 1층에 위치하며, 단체 이용과 반려동물 동반이 가능해요.",
+      "naverMapUrl": "https://naver.me/FwjwZdCN"
+    },
+    {
+      "id": "3",
+      "name": "앤트러사이트 연희점",
+      "area": "연희동",
+      "address": "서울 서대문구 연희로 135 앤트러사이트 연희점",
+      "outlet": "많음",
+      "noise": "조용함",
+      "wifi": true,
+      "hasLargeTable": true,
+      "coffeePrice": 6000,
+      "description": "다양한 커피 메뉴를 제공하며, 주차와 반려동물 동반이 가능해요.",
+      "naverMapUrl": "https://naver.me/Ffe1BQCx"
+    },
+    {
+      "id": "4",
+      "name": "리브레리",
+      "area": "당산동",
+      "address": "서울 영등포구 양산로25길 3 1층(당산동3가)",
+      "outlet": "적음",
+      "noise": "보통",
+      "wifi": true,
+      "hasLargeTable": false,
+      "coffeePrice": 5500,
+      "description": "영등포구청역 인근에 위치하며, 커피와 스콘 등의 메뉴를 제공해요.",
+      "naverMapUrl": "https://naver.me/GHvThmJm"
+    },
+    {
+      "id": "5",
+      "name": "보사노바 베이커리랩 신정점",
+      "area": "신정동",
+      "address": "서울 양천구 중앙로45길 8-32 1, 2층",
+      "outlet": "적음",
+      "noise": "보통",
+      "wifi": true,
+      "hasLargeTable": true,
+      "coffeePrice": 4500,
+      "description": "신정네거리역 인근의 베이커리 카페로, 단체 이용과 주차가 가능해요.",
+      "naverMapUrl": "https://naver.me/GgWEPFiP"
+    },
+    {
+      "id": "6",
+      "name": "umoae",
+      "area": "남영동",
+      "address": "서울 용산구 한강대로84길 21-17 1층",
+      "outlet": "많음",
+      "noise": "보통",
+      "wifi": true,
+      "hasLargeTable": false,
+      "coffeePrice": 5500,
+      "description": "숙대입구역 인근에 위치하며, 단체 이용이 가능한 노키즈존 카페예요.",
+      "naverMapUrl": "https://naver.me/FV7j25b4"
+    }
+  ]
+}
