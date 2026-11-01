@@ -10,6 +10,17 @@ const expenses = ref([
 ]);
 
 const budget = ref(300000);
+const selectedCategory = ref("전체");
+
+const filteredExpenses = computed(() => {
+  if (selectedCategory.value === "전체") {
+    return expenses.value;
+  }
+
+  return expenses.value.filter(
+    (expense) => expense.category === selectedCategory.value,
+  );
+});
 
 const totalExpense = computed(() =>
   expenses.value.reduce((total, expense) => total + expense.amount, 0),
@@ -57,9 +68,28 @@ function removeExpense(id) {
 
     <ExpenseInput @add="addExpense" />
 
-    <ul>
+    <div class="filter">
+      <label for="category-filter">카테고리</label>
+      <select id="category-filter" v-model="selectedCategory">
+        <option value="전체">전체</option>
+        <option value="식비">식비</option>
+        <option value="카페">카페</option>
+        <option value="교통">교통</option>
+        <option value="쇼핑">쇼핑</option>
+        <option value="기타">기타</option>
+      </select>
+      <span>{{ filteredExpenses.length }}건</span>
+    </div>
+
+    <p v-if="expenses.length === 0" class="empty-message">
+      아직 지출 내역이 없어요. 첫 지출을 기록해보세요!
+    </p>
+    <p v-else-if="filteredExpenses.length === 0" class="empty-message">
+      {{ selectedCategory }} 카테고리에 지출 내역이 없어요.
+    </p>
+    <ul v-else>
       <ExpenseItem
-        v-for="expense in expenses"
+        v-for="expense in filteredExpenses"
         :key="expense.id"
         :expense="expense"
         @remove="removeExpense"
@@ -95,5 +125,22 @@ ul {
 
 .exceeded {
   color: #b42318;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter select {
+  padding: 10px;
+}
+
+.empty-message {
+  padding: 24px 0;
+  color: #666;
+  text-align: center;
 }
 </style>
