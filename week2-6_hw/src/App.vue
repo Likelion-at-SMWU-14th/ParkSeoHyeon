@@ -1,16 +1,64 @@
 <script setup>
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import ExpenseInput from "./components/ExpenseInput.vue";
 import ExpenseItem from "./components/ExpenseItem.vue";
 
-const expenses = ref([
+const STORAGE_KEY = "expense-tracker-data";
+const defaultExpenses = [
   { id: 1, text: "점심", amount: 9000, category: "식비" },
   { id: 2, text: "아이스 아메리카노", amount: 4500, category: "카페" },
   { id: 3, text: "버스", amount: 1500, category: "교통" },
-]);
+];
 
-const budget = ref(300000);
+function loadData() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    if (
+      saved &&
+      Number.isFinite(saved.budget) && saved.budget >= 0 &&
+      Array.isArray(saved.expenses) &&
+      saved.expenses.every((expense) =>
+        expense &&
+        (typeof expense.id === "string" || typeof expense.id === "number") &&
+        typeof expense.text === "string" &&
+        typeof expense.category === "string" &&
+        Number.isFinite(expense.amount) && expense.amount > 0,
+      )
+    ) {
+      return saved;
+    }
+  } catch {
+    // 저장된 데이터가 없거나 읽을 수 없으면 기본값으로 시작해요.
+  }
+
+  return { expenses: defaultExpenses, budget: 300000 };
+}
+
+const savedData = loadData();
+const expenses = ref(savedData.expenses);
+const budget = ref(savedData.budget);
+const storageError = ref("");
+
 const selectedCategory = ref("전체");
+
+watch(
+  [expenses, budget],
+  () => {
+    const amount = Number(budget.value);
+    const validBudget = Number.isFinite(amount) && amount >= 0 ? amount : 0;
+
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        expenses: expenses.value,
+        budget: validBudget,
+      }));
+      storageError.value = "";
+    } catch {
+      storageError.value = "기록을 저장하지 못했어요. 브라우저의 저장 공간 설정을 확인해주세요.";
+    }
+  },
+  { deep: true },
+);
 
 const filteredExpenses = computed(() => {
   if (selectedCategory.value === "전체") {
@@ -47,6 +95,7 @@ function removeExpense(id) {
 <template>
   <main>
     <h1>나의 가계부</h1>
+    <p v-if="storageError" class="exceeded" role="alert">{{ storageError }}</p>
 
     <section class="summary" aria-label="예산과 지출 요약">
       <label for="budget">예산 (원)</label>
